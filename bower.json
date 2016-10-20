@@ -1,0 +1,22 @@
+{
+  "name": "sean-web",
+  "description": "SEAN Stack for Frontend Apps",
+  "main": "bin/www",
+  "authors": [
+    "Sam Yong"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^2.1.2",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "angular": "^1.5.8"
+  }
+}

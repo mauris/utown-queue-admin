@@ -1,0 +1,77 @@
+{
+  "name": "sean-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/www",
+  "scripts": {
+    "start": "node bin/www",
+    "test": "mocha",
+    "postinstall": "bower install && gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sean-js/sean-web.git"
+  },
+  "author": "Sam Yong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sean-js/sean-web/issues"
+  },
+  "engines": {
+    "node": "^6.0.0"
+  },
+  "homepage": "https://github.com/sean-js/sean-web",
+  "dependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "babelify": "^7.3.0",
+    "bcryptjs": "^2.3.0",
+    "bluebird": "^3.4.3",
+    "body-parser": "^1.15.2",
+    "brfs": "^1.4.3",
+    "browserify": "^13.1.0",
+    "config": "^1.21.0",
+    "connect": "^3.4.1",
+    "cookie-parser": "^1.4.3",
+    "debowerify": "^1.5.0",
+    "debug": "^2.2.0",
+    "del": "^2.2.2",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-flatten": "^0.3.1",
+    "gulp-if": "^2.0.1",
+    "gulp-ignore": "^2.0.1",
+    "gulp-less": "^3.1.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-pug": "^3.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "helmet": "^2.2.0",
+    "jsonwebtoken": "^7.1.9",
+    "main-bower-files": "^2.13.1",
+    "moment": "^2.14.1",
+    "morgan": "^1.7.0",
+    "require-dir": "^0.3.0",
+    "serve-favicon": "^2.3.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.1.0"
+  }
+}

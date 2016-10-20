@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SEAN Stack for Frontend Apps using AngularJS
+    base(href="/")
+    link(rel='stylesheet', href='/assets/css/vendor.css')
+    link(rel='stylesheet', href='/assets/css/style.css')
+  body(ng-app="app")
+    div(ng-view)
+
+    script(src="/assets/js/vendor.js", type="text/javascript")
+    script(src="/assets/js/main.js", type="text/javascript")
