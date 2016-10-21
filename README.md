@@ -1,6 +1,6 @@
-# SEAN Stack for Frontend Apps using AngularJS [![CI Status](https://travis-ci.org/sean-js/sean-web.svg?branch=master)](https://travis-ci.org/sean-js/sean-web)
+# UTown Queue Frontend Application
 
-SEAN stands for Sequelize, ExpressJS, AngularJS and NodeJS.
+This app serves as the frontend application to help the queue managers track the status of the queue and call groups of people in the queue to the physical location when it is their turn. This app was made possible using the [SEAN Stack](https://github.com/sean-js).
 
 ## Comamnds
 
