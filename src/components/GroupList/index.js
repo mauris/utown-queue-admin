@@ -6,7 +6,7 @@ let $controller = ($scope, $http, api) => {
 
   var load = () => {
     $scope.isLoading = true;
-    $http.get(api.rootUrl+'/groups/')
+    $http.get(api.rootUrl+'/groups/', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
         $scope.groups = result.data.result;
         $scope.isLoading = false;
@@ -14,14 +14,14 @@ let $controller = ($scope, $http, api) => {
   };
 
   $scope.callGroup = (group) => {
-    $http.post(api.rootUrl + '/groups/' + group.groupId + '/request')
+    $http.post(api.rootUrl + '/groups/' + group.groupId + '/request', '', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
         console.log('requested');
       });
   };
 
   $scope.markGroupPresent = (group) => {
-    $http.post(api.rootUrl + '/groups/' + group.groupId + '/markpresent')
+    $http.post(api.rootUrl + '/groups/' + group.groupId + '/markpresent', '', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
         console.log('marked present');
         group.isPresent = true;
@@ -29,7 +29,7 @@ let $controller = ($scope, $http, api) => {
   };
 
   $scope.startGroup = (group) => {
-    $http.post(api.rootUrl + '/groups/' + group.groupId + '/start')
+    $http.post(api.rootUrl + '/groups/' + group.groupId + '/start', '', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
         console.log('group started');
         $scope.groups.splice($scope.groups.indexOf(group), 1);
