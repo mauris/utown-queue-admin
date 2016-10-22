@@ -12,9 +12,9 @@ table.table.table-hover
       span {{group.totalNoOfPeople}}
     td
       div(ng-repeat="ticket in group.tickets", style="margin-bottom:5px;")
-        span: b Ticket \#{{ticket.ticketId}}
+        span: b Ticket \#{{ticket.ticketId}} ({{ticket.noOfPeople}})
         br
-        span {{ticket.user.name}}, {{ticket.noOfPeople}} people
+        span {{ticket.user.name}}
         br
         span(am-time-ago="ticket.datetimeRequested")
     td
