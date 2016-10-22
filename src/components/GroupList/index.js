@@ -13,6 +13,12 @@ let $controller = ($scope, $http, api) => {
       });
   };
 
+  $scope.callGroup = (group) => {
+    $http.post(api.rootUrl + '/groups/' + group.groupId + '/request')
+      .then((result) => {
+        console.log('requested');
+      });
+  };
   load();
 };
 
