@@ -1,12 +1,14 @@
 const APP_NAME = process.env.APP_NAME || 'app';
+
 let app = angular.module(APP_NAME, [
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angularMoment'
 ]);
 
-app.config(['$locationProvider', ($locationProvider) => {
+app.config(($locationProvider) => {
   $locationProvider.html5Mode(true);
-}]);
+});
 
 app.filter('encodeUri', () => {
   return window.encodeURIComponent;
