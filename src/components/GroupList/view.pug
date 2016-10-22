@@ -1,7 +1,7 @@
 table.table.table-hover
   tr
-    th Group Number
-    th # of People
+    th Group
+    th People
     th Tickets
     th Duration in Queue
     th Actions
@@ -20,4 +20,6 @@ table.table.table-hover
     td
       span(am-time-ago="group.datetimeFormed")
     td
-      button.btn.btn-default(ng-click="callGroup(group)") Call
+      button.btn.btn-default(ng-hide="group.isPresent", ng-click="callGroup(group)") Call
+      button.btn.btn-default(ng-hide="group.isPresent", ng-click="markGroupPresent(group)") Mark Present
+      button.btn.btn-default.ng-cloak(ng-show="group.isPresent", ng-click="callGroup(group)") Start Group
