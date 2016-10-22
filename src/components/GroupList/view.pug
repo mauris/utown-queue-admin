@@ -1,0 +1,20 @@
+table.table.table-hover
+  tr
+    th Group Number
+    th # of People
+    th Tickets
+    th Duration in Queue
+    th Actions
+  tr(ng-repeat="group in groups", ng-hide="isLoading")
+    td
+      span {{group.groupId}}
+    td
+      span {{group.totalNoOfPeople}}
+    td
+      div(ng-repeat="ticket in group.tickets")
+        p: b Ticket \#{{ticket.ticketId}}
+        p {{ticket.user.name}} for {{ticket.noOfPeople}} people
+    td
+      span {{moment()}}
+    td
+      button.btn.btn-default(ng-click="callGroup(group)") Call

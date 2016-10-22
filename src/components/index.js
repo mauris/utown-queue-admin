@@ -1,1 +1,1 @@
-import './WelcomeBox';
+import './GroupList';
