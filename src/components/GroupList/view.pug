@@ -1,4 +1,4 @@
-table.table.table-hover
+table.table.table-striped
   tr
     th Group
     th People
@@ -11,12 +11,15 @@ table.table.table-hover
     td
       span {{group.totalNoOfPeople}}
     td
-      div(ng-repeat="ticket in group.tickets", style="margin-bottom:5px;")
-        span: b Ticket \#{{ticket.ticketId}} ({{ticket.noOfPeople}})
-        br
-        span {{ticket.user.name}}
-        br
-        span(am-time-ago="ticket.datetimeRequested")
+      div.panel.panel-default(ng-repeat="ticket in group.tickets", style="margin-bottom:5px;")
+        .panel-body
+          span
+            b Ticket \#{{ticket.ticketId}}
+            | &nbsp;{{ticket.user.name}}, {{ticket.noOfPeople}} {{ticket.noOfPeople == 1 ? 'person':'people'}}
+        .panel-footer
+          .pull-right
+            small: span(am-time-ago="ticket.datetimeRequested")
+          button.btn.btn-default.btn-xs(ng-click="revokeTicket(group, ticket)") Remove
     td
       span(am-time-ago="group.datetimeFormed")
     td
