@@ -41,6 +41,11 @@ let $controller = ($scope, $http, api) => {
       .then((res) => {
         group.totalNoOfPeople -= ticket.noOfPeople;
         group.tickets.splice(group.tickets.indexOf(ticket), 1);
+        if (group.tickets.length === 0) {
+          // no more tickets left in group. so we assume
+          // server has deleted the group as well.
+          $scope.groups.splice($scope.groups.indexOf(group), 1);
+        }
       });
   };
 
