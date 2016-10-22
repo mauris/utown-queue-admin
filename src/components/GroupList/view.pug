@@ -11,10 +11,13 @@ table.table.table-hover
     td
       span {{group.totalNoOfPeople}}
     td
-      div(ng-repeat="ticket in group.tickets")
-        p: b Ticket \#{{ticket.ticketId}}
-        p {{ticket.user.name}} for {{ticket.noOfPeople}} people
+      div(ng-repeat="ticket in group.tickets", style="margin-bottom:5px;")
+        span: b Ticket \#{{ticket.ticketId}}
+        br
+        span {{ticket.user.name}}, {{ticket.noOfPeople}} people
+        br
+        span(am-time-ago="ticket.datetimeRequested")
     td
-      span {{moment()}}
+      span(am-time-ago="group.datetimeFormed")
     td
       button.btn.btn-default(ng-click="callGroup(group)") Call
