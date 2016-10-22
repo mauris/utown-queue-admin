@@ -5,7 +5,7 @@ app.factory('authInterceptor', ($rootScope, $q, $window, $location) => {
     request: (config) => {
       config.headers = config.headers || {};
       if ($window.sessionStorage.token) {
-        config.headers['x-access-token'] = $window.sessionStorage.token;
+        config.headers['Authorization'] = $window.sessionStorage.token;
       }
       return config;
     },
