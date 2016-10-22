@@ -36,6 +36,14 @@ let $controller = ($scope, $http, api) => {
       });
   };
 
+  $scope.revokeTicket = (group, ticket) => {
+    $http.delete(api.rootUrl + '/tickets/' + ticket.ticketId)
+      .then((res) => {
+        group.totalNoOfPeople -= ticket.noOfPeople;
+        group.tickets.splice(group.tickets.indexOf(ticket), 1);
+      });
+  };
+
   load();
 };
 
