@@ -28,6 +28,14 @@ let $controller = ($scope, $http, api) => {
       });
   };
 
+  $scope.startGroup = (group) => {
+    $http.post(api.rootUrl + '/groups/' + group.groupId + '/start')
+      .then((result) => {
+        console.log('group started');
+        $scope.groups.splice($scope.groups.indexOf(group), 1);
+      });
+  };
+
   load();
 };
 
