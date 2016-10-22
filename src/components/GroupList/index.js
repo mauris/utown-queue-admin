@@ -19,6 +19,15 @@ let $controller = ($scope, $http, api) => {
         console.log('requested');
       });
   };
+
+  $scope.markGroupPresent = (group) => {
+    $http.post(api.rootUrl + '/groups/' + group.groupId + '/markpresent')
+      .then((result) => {
+        console.log('marked present');
+        group.isPresent = true;
+      });
+  };
+
   load();
 };
 
