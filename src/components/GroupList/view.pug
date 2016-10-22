@@ -20,6 +20,8 @@ table.table.table-hover
     td
       span(am-time-ago="group.datetimeFormed")
     td
-      button.btn.btn-default(ng-hide="group.isPresent", ng-click="callGroup(group)") Call
-      button.btn.btn-default(ng-hide="group.isPresent", ng-click="markGroupPresent(group)") Mark Present
-      button.btn.btn-default.ng-cloak(ng-show="group.isPresent", ng-click="callGroup(group)") Start Group
+      button.btn.btn-default.btn-sm(ng-hide="group.isPresent", ng-click="callGroup(group)") Call
+      | &nbsp;
+      button.btn.btn-default.btn-sm(ng-hide="group.isPresent", ng-click="markGroupPresent(group)") Mark Present
+      | &nbsp;
+      button.btn.btn-default.btn-sm.ng-cloak(ng-show="group.isPresent", ng-click="callGroup(group)") Start Group
