@@ -19,14 +19,14 @@ table.table.table-striped
         .panel-footer(ng-hide="group.isPresent")
           .pull-right
             small: span(am-time-ago="ticket.datetimeRequested")
-          button.btn.btn-default.btn-xs(ng-click="revokeTicket(group, ticket)") Remove
+          button.btn.btn-default.btn-xs(ng-click="revokeTicket(group, ticket)", ng-disabled="isRevokeTicketLoading") Remove
     td
       span(am-time-ago="group.datetimeFormed")
     td
-      button.btn.btn-default.btn-sm.ng-cloak(ng-show="group.isPresent", ng-click="startGroup(group)") Start Group
-      button.btn.btn-default.btn-sm(ng-hide="group.isPresent", ng-click="callGroup(group)") Call
+      button.btn.btn-default.btn-sm.ng-cloak(ng-show="group.isPresent", ng-click="startGroup(group)", ng-disabled="isStartGroupLoading") Start Group
+      button.btn.btn-default.btn-sm(ng-hide="group.isPresent", ng-click="callGroup(group)", ng-disabled="isCallGroupLoading") Call
       | &nbsp;
-      button.btn.btn-default.btn-sm(ng-hide="group.isPresent", ng-click="markGroupPresent(group)") Mark Present
+      button.btn.btn-default.btn-sm(ng-hide="group.isPresent", ng-click="markGroupPresent(group)", ng-disabled="isMarkPresentLoading") Mark Present
 
 .list-empty-message(ng-show="groups.length == 0")
   p.lead There are currently no groups in the queue.
