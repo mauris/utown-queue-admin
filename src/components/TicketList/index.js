@@ -12,6 +12,14 @@ let $controller = ($scope, $http, api, $interval) => {
         $scope.isLoading = false;
       });
   };
+
+  $scope.revokeTicket = (ticket) => {
+    $http.delete(api.rootUrl + '/tickets/' + ticket.ticketId)
+      .then((res) => {
+        $scope.tickets.splice($scope.tickets.indexOf(ticket), 1);
+      });
+  };
+
   load();
   $interval(load, 15000);
 };
