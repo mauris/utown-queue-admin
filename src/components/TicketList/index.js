@@ -3,6 +3,7 @@ const app = require('../../app');
 let $controller = ($scope, $http, api, $interval, toastr) => {
   $scope.isLoading = false;
   $scope.tickets = [];
+  $scope.isRevokeTicketLoading = false;
 
   var load = () => {
     $scope.isLoading = true;
@@ -14,10 +15,12 @@ let $controller = ($scope, $http, api, $interval, toastr) => {
   };
 
   $scope.revokeTicket = (ticket) => {
+    $scope.isRevokeTicketLoading = true;
     $http.delete(api.rootUrl + '/tickets/' + ticket.ticketId)
       .then((res) => {
         $scope.tickets.splice($scope.tickets.indexOf(ticket), 1);
         toastr.success('Ticket #' + ticket.ticketId + ' has been cancelled. ');
+        $scope.isRevokeTicketLoading = false;
       });
   };
 
