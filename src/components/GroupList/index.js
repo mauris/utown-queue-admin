@@ -1,6 +1,6 @@
 const app = require('../../app');
 
-let $controller = ($scope, $http, api, $interval) => {
+let $controller = ($scope, $http, api, $interval, toastr) => {
   $scope.isLoading = false;
   $scope.groups = [];
 
@@ -16,23 +16,23 @@ let $controller = ($scope, $http, api, $interval) => {
   $scope.callGroup = (group) => {
     $http.post(api.rootUrl + '/groups/' + group.groupId + '/request', '', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
-        console.log('requested');
+        toastr.success('A message calling for group ' + group.groupId + ' was sent.');
       });
   };
 
   $scope.markGroupPresent = (group) => {
     $http.post(api.rootUrl + '/groups/' + group.groupId + '/markpresent', '', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
-        console.log('marked present');
         group.isPresent = true;
+        toastr.success('Group ' + group.groupId + ' was marked present. At your discretion you may let the group in.');
       });
   };
 
   $scope.startGroup = (group) => {
     $http.post(api.rootUrl + '/groups/' + group.groupId + '/start', '', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
-        console.log('group started');
         $scope.groups.splice($scope.groups.indexOf(group), 1);
+        toastr.success('Group ' + group.groupId + ' has started. You may send more groups to the entrance using the Call function.');
       });
   };
 
