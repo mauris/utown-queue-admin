@@ -2,8 +2,10 @@ const APP_NAME = process.env.APP_NAME || 'app';
 
 let app = angular.module(APP_NAME, [
   'ngRoute',
+  'ngAnimate',
   'ui.bootstrap',
-  'angularMoment'
+  'angularMoment',
+  'toastr'
 ]);
 
 app.config(($locationProvider) => {
