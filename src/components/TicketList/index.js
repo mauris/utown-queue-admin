@@ -1,6 +1,6 @@
 const app = require('../../app');
 
-let $controller = ($scope, $http, api, $interval) => {
+let $controller = ($scope, $http, api, $interval, toastr) => {
   $scope.isLoading = false;
   $scope.tickets = [];
 
@@ -17,6 +17,7 @@ let $controller = ($scope, $http, api, $interval) => {
     $http.delete(api.rootUrl + '/tickets/' + ticket.ticketId)
       .then((res) => {
         $scope.tickets.splice($scope.tickets.indexOf(ticket), 1);
+        toastr.success('Ticket #' + ticket.ticketId + ' has been cancelled. ');
       });
   };
 
