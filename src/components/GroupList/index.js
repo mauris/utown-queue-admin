@@ -1,6 +1,6 @@
 const app = require('../../app');
 
-let $controller = ($scope, $http, api) => {
+let $controller = ($scope, $http, api, $interval) => {
   $scope.isLoading = false;
   $scope.groups = [];
 
@@ -50,6 +50,7 @@ let $controller = ($scope, $http, api) => {
   };
 
   load();
+  $interval(load, 15000);
 };
 
 app.component('groupList', {
