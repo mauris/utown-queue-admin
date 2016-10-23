@@ -16,7 +16,7 @@ table.table.table-striped
           span
             b Ticket \#{{ticket.ticketId}}
             | &nbsp;{{ticket.user.name}}, {{ticket.noOfPeople}} {{ticket.noOfPeople == 1 ? 'person':'people'}}
-        .panel-footer
+        .panel-footer(ng-hide="group.isPresent")
           .pull-right
             small: span(am-time-ago="ticket.datetimeRequested")
           button.btn.btn-default.btn-xs(ng-click="revokeTicket(group, ticket)") Remove
