@@ -46,6 +46,7 @@ let $controller = ($scope, $http, api, $interval, toastr) => {
           // server has deleted the group as well.
           $scope.groups.splice($scope.groups.indexOf(group), 1);
         }
+        toastr.success('Ticket #' + ticket.ticketId + " from Group" + group.groupId + ' has been cancelled. ');
       });
   };
 
