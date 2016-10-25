@@ -1,7 +1,7 @@
 const app = require('../../app');
 
 let $controller = ($scope, $window, $http, $routeParams, $location, api) => {
-  $scope.eventCode = '';
+  $scope.eventId = '';
   $scope.secret = '';
   $scope.isLoading = false;
 
@@ -10,7 +10,7 @@ let $controller = ($scope, $window, $http, $routeParams, $location, api) => {
     $http
       .post(
         api.rootUrl + '/auth/request',
-        { code: $scope.eventCode, secret: $scope.secret }
+        { id: $scope.eventId, secret: $scope.secret }
       )
       .then((result) => {
         var token = result.data.token;

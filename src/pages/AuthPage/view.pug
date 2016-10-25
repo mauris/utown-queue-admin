@@ -5,8 +5,8 @@
       p Sign in to the queue manager for your event by entering the event code and the secret to the event.
       form(ng-submit="authenticate()")
         .form-group
-          label(for="txtEventCode") Event Code
-          input#txtEventCode.form-control(type="text", ng-model="eventCode")
+          label(for="txtEventId") Event ID
+          input#txtEventId.form-control(type="text", ng-model="eventId")
         .form-group
           label(for="txtSecret") Secret
           input#txtSecret.form-control(type="password", ng-model="secret")
