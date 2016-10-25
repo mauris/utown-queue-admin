@@ -25,7 +25,7 @@ let $controller = ($scope, $http, api, $interval, toastr) => {
   };
 
   load();
-  $interval(load, 15000);
+  $interval(load, 30000);
 };
 
 app.component('ticketList', {

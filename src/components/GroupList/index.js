@@ -65,7 +65,7 @@ let $controller = ($scope, $http, api, $interval, toastr) => {
   };
 
   load();
-  $interval(load, 15000);
+  $interval(load, 20000);
 };
 
 app.component('groupList', {
