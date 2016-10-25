@@ -3,6 +3,9 @@
     h1 {{event.eventName}}
     group-list
   .col-md-3
+    h1(ng-click="loadEvent()", style="cursor:pointer;")
+      | Code&nbsp;&nbsp;
+      code {{event.eventCode}}
     h4 Tickets without Groups
     p These are the tickets that have yet to join a group. They will be matched to a group shortly.
     ticket-list

@@ -1,14 +1,15 @@
 const app = require('../../app');
 
-let $controller = ($scope, $window, $http, $routeParams, api) => {
+let $controller = ($scope, $window, $http, $routeParams, api, $interval) => {
   $scope.event = {};
-  let loadEvent = () => {
+  $scope.loadEvent = () => {
     $http.get(api.rootUrl + '/event')
       .then((res) => {
         $scope.event = res.data.result;
       });
   };
-  loadEvent();
+  $scope.loadEvent();
+  $interval($scope.loadEvent, 10000)
 };
 
 app.config(($routeProvider) => {
