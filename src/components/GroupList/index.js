@@ -21,6 +21,8 @@ let $controller = ($scope, $http, api, $interval, toastr) => {
     $scope.isCallGroupLoading = true;
     $http.post(api.rootUrl + '/groups/' + group.groupId + '/call', '', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
+        ++group.callCount;
+        group.datetimeLastCalled = new Date();
         $scope.isCallGroupLoading = false;
         toastr.success('A message calling for group ' + group.groupId + ' was sent.');
       });
