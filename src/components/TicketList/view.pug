@@ -1,15 +1,13 @@
-.row
-  .col-sm-3
-    div.panel.panel-default(ng-repeat="ticket in tickets", style="margin-bottom:5px;")
-      .panel-body
-        span
-          b Ticket \#{{ticket.ticketId}}
-          | &nbsp;{{ticket.user.name}}, {{ticket.noOfPeople}} {{ticket.noOfPeople == 1 ? 'person':'people'}}
-      .panel-footer
-        .pull-right
-          small: span(am-time-ago="ticket.datetimeRequested")
-        button.btn.btn-default.btn-xs(ng-click="revokeTicket(ticket)", ng-disabled="isRevokeTicketLoading") Remove
+div.panel.panel-default(ng-repeat="ticket in tickets", style="margin-bottom:5px;")
+  .panel-body
+    span
+      b Ticket \#{{ticket.ticketId}}
+      | &nbsp;{{ticket.user.name}}, {{ticket.noOfPeople}} {{ticket.noOfPeople == 1 ? 'person':'people'}}
+  .panel-footer
+    .pull-right
+      small: span(am-time-ago="ticket.datetimeRequested")
+    button.btn.btn-default.btn-xs(ng-click="revokeTicket(ticket)", ng-disabled="isRevokeTicketLoading") Remove
 
-  .col-sm-12
-    .list-empty-message(ng-show="tickets.length == 0")
-      p.lead There are currently no unmatched tickets in the queue.
+.col-sm-12
+.list-empty-message(ng-show="tickets.length == 0")
+  p.lead There are currently no unmatched tickets in the queue.
