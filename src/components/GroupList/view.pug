@@ -27,6 +27,13 @@ table.table.table-striped
       button.btn.btn-default.btn-sm(ng-hide="group.isPresent", ng-click="callGroup(group)", ng-disabled="isCallGroupLoading") Call
       | &nbsp;
       button.btn.btn-default.btn-sm(ng-hide="group.isPresent", ng-click="markGroupPresent(group)", ng-disabled="isMarkPresentLoading") Mark Present
+      div(ng-hide="group.isPresent")
+        span(ng-show="group.callCount > 1") Called {{group.callCount}} times
+        span(ng-show="group.callCount == 1") Called once
+        span(ng-show="group.callCount == 0") Not called yet
+        div.ng-cloak(ng-show="group.datetimeLastCalled")
+          small Last called&nbsp;
+          small(am-time-ago="group.datetimeLastCalled")
 
 .list-empty-message(ng-show="groups.length == 0")
   p.lead There are currently no groups in the queue.
