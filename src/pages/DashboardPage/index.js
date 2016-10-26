@@ -1,15 +1,16 @@
 const app = require('../../app');
+const moment = require('moment');
 
-let $controller = ($scope, $window, $http, $routeParams, api, $interval) => {
+let $controller = ($scope, $window, $http, $routeParams, api, $timeout) => {
   $scope.event = {};
   $scope.loadEvent = () => {
     $http.get(api.rootUrl + '/event')
       .then((res) => {
         $scope.event = res.data.result;
+        $timeout($scope.loadEvent, 61000 + moment($scope.event.datetimeCodeLastUpdated).diff(moment()));
       });
   };
   $scope.loadEvent();
-  $interval($scope.loadEvent, 10000)
 };
 
 app.config(($routeProvider) => {
