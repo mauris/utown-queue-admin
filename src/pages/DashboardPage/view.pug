@@ -10,6 +10,11 @@
       | The current waiting time from the end of the queue is approximately&nbsp;
       code {{Math.ceil(event.averageWaitingTime / 60)}} mins
       | .
+    p
+      span(ng-show="event.maxPeoplePerGroup == event.minPeoplePerGroup")
+        | Groups going in must have {{event.maxPeoplePerGroup}} people.
+      span(ng-show="event.maxPeoplePerGroup > event.minPeoplePerGroup")
+        | Groups going in must have between {{event.minPeoplePerGroup}} and {{event.maxPeoplePerGroup}} people (incl.).
     h4 Tickets without Groups
     p These are the tickets that have yet to join a group. They will be matched to a group shortly.
     ticket-list
