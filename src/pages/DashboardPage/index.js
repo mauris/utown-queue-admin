@@ -11,6 +11,7 @@ let $controller = ($scope, $window, $http, $routeParams, api, $timeout) => {
       });
   };
   $scope.loadEvent();
+  $scope.Math = window.Math;
 };
 
 app.config(($routeProvider) => {

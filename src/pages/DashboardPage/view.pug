@@ -8,7 +8,7 @@
       code {{event.eventCode}}
     p
       | The current waiting time from the end of the queue is approximately&nbsp;
-      code {{event.averageWaitingTime / 60}} mins
+      code {{Math.ceil(event.averageWaitingTime / 60)}} mins
       | .
     h4 Tickets without Groups
     p These are the tickets that have yet to join a group. They will be matched to a group shortly.
