@@ -6,6 +6,10 @@
     h1(ng-click="loadEvent()", style="cursor:pointer;")
       | Code&nbsp;&nbsp;
       code {{event.eventCode}}
+    p
+      | The current waiting time from the end of the queue is approximately&nbsp;
+      code {{event.averageWaitingTime / 60}} mins
+      | .
     h4 Tickets without Groups
     p These are the tickets that have yet to join a group. They will be matched to a group shortly.
     ticket-list
