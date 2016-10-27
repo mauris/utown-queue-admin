@@ -14,11 +14,14 @@ let $controller = function ($scope, $http, api, $interval, toastr) {
     $http.get(api.rootUrl+'/groups/', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
         $scope.groups = result.data.result;
-        if ($ctrl.onUpdate) {
-          $ctrl.onUpdate({ groups: $scope.groups });
-        }
+        !$ctrl.onUpdate || $ctrl.onUpdate({ groups: $scope.groups });
         $scope.isLoading = false;
       });
+  };
+
+  let removeGroupFromList = (group) => {
+    $scope.groups.splice($scope.groups.indexOf(group), 1);
+    !$ctrl.onUpdate || $ctrl.onUpdate({ groups: $scope.groups });
   };
 
   $scope.callGroup = (group) => {
@@ -46,7 +49,7 @@ let $controller = function ($scope, $http, api, $interval, toastr) {
     $scope.isStartGroupLoading = true;
     $http.post(api.rootUrl + '/groups/' + group.groupId + '/start', '', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
-        $scope.groups.splice($scope.groups.indexOf(group), 1);
+        removeGroupFromList(group);
         toastr.success('Group ' + group.groupId + ' has started. You may send more groups to the entrance using the Call function.');
         $scope.isStartGroupLoading = false;
       });
@@ -61,7 +64,7 @@ let $controller = function ($scope, $http, api, $interval, toastr) {
         if (group.tickets.length === 0) {
           // no more tickets left in group. so we assume
           // server has deleted the group as well.
-          $scope.groups.splice($scope.groups.indexOf(group), 1);
+          removeGroupFromList(group);
         }
         toastr.success('Ticket #' + ticket.ticketId + " from Group" + group.groupId + ' has been cancelled. ');
         $scope.isRevokeTicketLoading = false;
