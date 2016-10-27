@@ -14,6 +14,9 @@ let $controller = function ($scope, $http, api, $interval, toastr) {
     $http.get(api.rootUrl+'/groups/', { headers: { 'Content-Type': 'text/plain' } })
       .then((result) => {
         $scope.groups = result.data.result;
+        if ($ctrl.onUpdate) {
+          $ctrl.onUpdate({ groups: $scope.groups });
+        }
         $scope.isLoading = false;
       });
   };
@@ -70,6 +73,9 @@ let $controller = function ($scope, $http, api, $interval, toastr) {
 };
 
 app.component('groupList', {
+  bindings: {
+    'onUpdate': '&'
+  },
   templateUrl: '/assets/views/GroupList/view.html',
   controller: $controller
 });
