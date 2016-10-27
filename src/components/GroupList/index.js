@@ -1,6 +1,7 @@
 const app = require('../../app');
 
-let $controller = ($scope, $http, api, $interval, toastr) => {
+let $controller = function ($scope, $http, api, $interval, toastr) {
+  let $ctrl = this;
   $scope.isLoading = false;
   $scope.groups = [];
   $scope.isRevokeTicketLoading = false;
