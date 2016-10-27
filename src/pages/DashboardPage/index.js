@@ -2,6 +2,10 @@ const app = require('../../app');
 const moment = require('moment');
 
 let $controller = ($scope, $window, $http, $routeParams, api, $timeout) => {
+  $scope.groupCount = 0;
+  $scope.onGroupListUpdated = (groups) => {
+    $scope.groupCount = groups.length;
+  }
   $scope.event = {};
   $scope.loadEvent = () => {
     $http.get(api.rootUrl + '/event')

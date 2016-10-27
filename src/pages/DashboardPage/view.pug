@@ -1,7 +1,7 @@
 .container-fluid
   .col-sm-9
     h1 {{event.eventName}}
-    group-list
+    group-list(on-update="onGroupListUpdated(groups)")
   .col-sm-3
     h1(ng-click="loadEvent()", style="cursor:pointer;")
       | Code&nbsp;&nbsp;
