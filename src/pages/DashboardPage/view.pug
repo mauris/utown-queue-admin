@@ -11,6 +11,8 @@
       code {{Math.ceil(event.averageWaitingTime / 60)}} mins
       | .
     p
+      ng-pluralize(count="groupCount", when="{'0': \"There are no groups in the queue.\", 'one': 'There is one group in the queue.', 'other': 'There are {} groups in the queue.'}")
+    p
       span(ng-show="event.maxPeoplePerGroup == event.minPeoplePerGroup")
         | Groups going in must have {{event.maxPeoplePerGroup}} people.
       span(ng-show="event.maxPeoplePerGroup > event.minPeoplePerGroup")
