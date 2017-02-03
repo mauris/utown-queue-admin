@@ -1,5 +1,6 @@
 const app = require('../app');
+const API_ROOT = process.env.API_ROOT;
 
 app.constant('api', {
-  'rootUrl': 'http://localhost:3000/v1'
+  'rootUrl': API_ROOT
 });
